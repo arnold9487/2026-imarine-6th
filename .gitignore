@@ -1,0 +1,31 @@
+# ===== Python =====
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# ===== 編輯器 / 系統 =====
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ===== 模型權重（走 GitHub Releases，不進 git）=====
+*.pt
+*.onnx
+model/訓練/runs/
+
+# ===== 訓練資料集（太大，本機 / D 槽保存）=====
+model/訓練/datasets/
+model/訓練/dataset/
+
+# ===== 簡報原始檔（不上傳）=====
+*.pptx
+簡報列印黨*.pdf
+
+# ===== 暫存 =====
+_*.png
+*.tmp
+*.log
+playwright/

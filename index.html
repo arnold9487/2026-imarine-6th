@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智慧貨櫃動態風險巡檢決策系統 — 阿對對隊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#0e1420; --panel:#1a2436; --panel2:#212d42;
+  --bd:#2c3a54; --text:#e8eef7; --dim:#93a1b8; --muted:#6c7a93;
+  --accent:#4f8cff; --accent2:#7aa7ff;
+  --rps:#ffd166; --dmg:#ff6b6b; --good:#34d399;
+  --r:12px; --sh:0 10px 30px rgba(0,0,0,.35);
+  --bodybg:radial-gradient(1200px 600px at 70% -10%, #1b2740 0%, var(--bg) 60%) fixed, var(--bg);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{
+  background:var(--bodybg); color:var(--text);
+  font-family:"Noto Sans TC",system-ui,-apple-system,"Microsoft JhengHei","PingFang TC",sans-serif;
+  padding:clamp(28px,6vh,64px) clamp(14px,3vw,40px);
+}
+.wrap{max-width:1040px;margin:0 auto}
+
+/* 頁首 */
+header{margin-bottom:34px}
+.eyebrow{color:var(--accent2);font-size:13px;letter-spacing:2px;font-weight:500;margin-bottom:10px}
+h1{margin:0;font-size:clamp(24px,4vw,38px);letter-spacing:.5px;line-height:1.25}
+.sub{color:var(--dim);font-size:clamp(13px,1.6vw,15px);margin-top:12px;max-width:62ch;line-height:1.7}
+.formula{
+  display:inline-block;margin-top:18px;
+  background:var(--panel);border:1px solid var(--bd);border-radius:var(--r);
+  padding:10px 14px;font-size:13px;color:var(--dim);box-shadow:var(--sh)
+}
+.formula b{color:var(--rps)} .formula code{color:var(--accent2);font-size:13px}
+
+/* 卡片 */
+.section-label{
+  font-size:12px;letter-spacing:2px;color:var(--muted);font-weight:500;
+  margin:36px 0 14px;text-transform:uppercase
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{
+  display:flex;flex-direction:column;
+  background:var(--panel);border:1px solid var(--bd);border-radius:var(--r);
+  padding:20px;box-shadow:var(--sh);
+  text-decoration:none;color:inherit;transition:.18s
+}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card .tag{
+  align-self:flex-start;font-size:11px;letter-spacing:1px;font-weight:500;
+  border-radius:99px;padding:4px 10px;margin-bottom:12px;
+  background:rgba(79,140,255,.12);color:var(--accent2);border:1px solid rgba(79,140,255,.3)
+}
+.card.src .tag{background:rgba(52,211,153,.1);color:var(--good);border-color:rgba(52,211,153,.28)}
+.card h2{margin:0;font-size:17px;letter-spacing:.3px}
+.card p{margin:8px 0 0;color:var(--dim);font-size:13.5px;line-height:1.65}
+.card .go{margin-top:16px;font-size:13px;color:var(--accent2)}
+.card:hover .go{color:var(--rps)}
+
+/* 次要連結 */
+.minor{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.minor a{
+  background:var(--panel2);border:1px solid var(--bd);border-radius:9px;
+  padding:8px 13px;font-size:13px;color:var(--dim);text-decoration:none;transition:.15s
+}
+.minor a:hover{border-color:var(--accent);color:var(--accent2)}
+
+footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--bd);color:var(--muted);font-size:12.5px;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">阿對對隊 · 高雄港</div>
+    <h1>智慧貨櫃動態風險巡檢決策系統</h1>
+    <p class="sub">
+      把「港區壅塞程度」與「貨櫃破損辨識結果」合成單一風險分數，
+      讓巡檢人力隨時間動態分配到最該去的貨櫃中心。
+    </p>
+    <div class="formula">
+      <b>RPS</b> = PPI × ( 1 + β · D_score )
+      　·　PPI = 小船等量 / 泊靠上限　·　D_score = Σ 在泊貨櫃破損信心
+    </div>
+  </header>
+
+  <div class="section-label">互動系統</div>
+  <div class="grid">
+
+    <a class="card" href="dashboard/">
+      <span class="tag">網頁 · 可互動</span>
+      <h2>動態風險巡檢決策儀表盤</h2>
+      <p>各貨櫃中心的即時 RPS 排名，可沿時間軸播放 72 小時情境，觀察壅塞尖峰、破損翻轉與深夜衝頂三個關鍵時刻。</p>
+      <span class="go">開啟儀表盤 →</span>
+    </a>
+
+    <a class="card" href="pressure/">
+      <span class="tag">網頁 · 可互動</span>
+      <h2>高雄港壓力指數</h2>
+      <p>依實際進出港資料計算各碼頭分區的泊靠壓力指數（PPI），疊加在港區高清底圖上呈現空間分佈。</p>
+      <span class="go">開啟壓力指數 →</span>
+    </a>
+
+    <a class="card src" href="model/" id="model-link">
+      <span class="tag">原始碼 · 訓練流程</span>
+      <h2>貨櫃破損辨識模型</h2>
+      <p>以 SeaFront 合成資料集訓練 YOLO 破損偵測模型，含資料集建置、預標註、訓練與評估腳本，以及 sim-to-real 的實驗紀錄。</p>
+      <span class="go">查看程式碼 →</span>
+    </a>
+
+  </div>
+
+  <div class="section-label">其他</div>
+  <div class="minor">
+    <a href="pressure-offline/">壓力指數 離線版</a>
+    <a href="docs/決賽故事線.md">決賽故事線</a>
+    <a href="docs/燒屁股.pdf">參考文件 (PDF)</a>
+  </div>
+
+  <footer>
+    模型權重（best.pt）因檔案較大未納入版本控制，請至本專案的 Releases 頁面下載。<br>
+    YOLO 預訓練權重（yolo11s.pt / yolo26n.pt）由 ultralytics 於首次訓練時自動下載。
+  </footer>
+
+</div>
+
+<script>
+// 辨識模型是純程式碼資料夾，Pages 上沒有 index.html。
+// 在 github.io 上時，把連結導到 GitHub repo 的原始碼頁面。
+(function () {
+  var host = location.hostname;
+  if (!/\.github\.io$/.test(host)) return;
+  var owner = host.split(".")[0];
+  var repo = location.pathname.split("/").filter(Boolean)[0];
+  if (!repo) return;
+  var base = "https://github.com/" + owner + "/" + repo + "/tree/main/";
+  document.getElementById("model-link").href = base + "model";
+  document.querySelectorAll(".minor a").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (href.indexOf("docs/") === 0 && !/\.pdf$/i.test(href)) {
+      a.href = base + href;
+    }
+  });
+})();
+</script>
+</body>
+</html>
