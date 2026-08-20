@@ -16,9 +16,9 @@ D_score = Σ 在泊貨櫃破損信心            （破損風險）
 
 | 頁面 | 網址 |
 |---|---|
-| 入口頁 | https://<你的帳號>.github.io/imarine/ |
-| 動態風險巡檢決策儀表盤 | https://<你的帳號>.github.io/imarine/dashboard/ |
-| 高雄港壓力指數 | https://<你的帳號>.github.io/imarine/pressure/ |
+| [入口頁](https://arnold9487.github.io/2026-imarine-6th/) 
+| [動態風險巡檢決策儀表盤](https://arnold9487.github.io/2026-imarine-6th/dashboard/)
+| [高雄港壓力指數](https://arnold9487.github.io/2026-imarine-6th/pressure/) 記得刷新頁面一下
 
 ## 目錄結構
 
